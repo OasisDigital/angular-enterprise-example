@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Views Breakdown</div>
+
+    <filter-state-display
+      [viewsFilterState]="viewsFilterState | async"
+      (removeGroup)="removeGroup($event)"
+    ></filter-state-display>
+
+    <views-breakdown-display
+      [currentVideo]="currentVideo | async"
+      [viewsBreakdown]="viewsBreakdown | async"
+      [graphData]="graphData | async"
+    >
+    </views-breakdown-display>
+
+    <div class="card">
+      <div class="card-content">
+        <div class="card-title">Add New Graph</div>
+        <p>Select an x-axis and click Render</p>
+        <div>
+          <label for="newGraph">Axis:</label>
+          <select name="newGraph" id="axis" [formControl]="newGraph" class="browser-default">
+            <option value="age">Age</option>
+            <option value="date">Day</option>
+            <option value="region">Region</option>
+          </select>
+          <button (click)="addNewGraph()" class="btn waves-effect waves-light">Render</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

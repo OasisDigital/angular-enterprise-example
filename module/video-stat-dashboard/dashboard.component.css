@@ -1,0 +1,13 @@
+img {
+  max-height: 106px;
+}
+
+/* Override Materialize */
+label {
+  padding-left: 25px !important;
+}
+
+svg {
+  display: block;
+  margin: auto;
+}

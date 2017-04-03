@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col s12 m6">
+    <section class="card">
+      <div class="card-content">
+        <div class="card-title">Employees</div>
+
+        <div class="row">
+          <div class="col s6">
+            <label for="nameFilter">Name Filter</label>
+            <input id="nameFilter" type="text" autocomplete="off" [formControl]="nameFilter">
+          </div>
+          <div class="col s6">
+            <label for="sort">Sort By</label>
+            <select id="sort" type="text" [formControl]="sort">
+              <option value="last_name">Last Name</option>
+              <option value="hours_worked">Hours Worked</option>
+            </select>
+          </div>
+        </div>
+
+        <employee-list-table-view [list]="filteredList | async"
+          [selectedId]="selectedId | async"
+          (selectId)="selectedId.next($event)"></employee-list-table-view>
+
+      </div>
+    </section>
+  </div>
+
+  <section class="col s12 m6">
+    <employee-detail-view [employee]="selectedEmployee | async"></employee-detail-view>
+  </section>
+</div>

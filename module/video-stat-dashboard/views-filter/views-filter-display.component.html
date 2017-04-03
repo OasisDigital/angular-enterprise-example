@@ -1,0 +1,58 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Filter Views</span>
+    <form [formGroup]="filterFormGroup">
+
+      <h6>Region</h6>
+      <div>
+        <input class="with-gap" name="region" value="North America" type="radio" id="test1" formControlName="region">
+        <label for="test1">North America</label>
+      </div>
+      <div>
+        <input class="with-gap" name="region" value="Europe" type="radio" id="test3" formControlName="region">
+        <label for="test3">Europe</label>
+      </div>
+      <div>
+        <input class="with-gap" name="region" value="Asia" type="radio" id="test4" formControlName="region">
+        <label for="test4">Asia</label>
+      </div>
+      <div>
+        <input class="with-gap" name="region" value="All" type="radio" id="test2" formControlName="region">
+        <label for="test2">All</label>
+      </div>
+
+      <h6>Date Range</h6>
+      <div>
+        <label for="dateFrom">From</label>
+        <input id="dateFrom" type="date" formControlName="dateFrom">
+      </div>
+      <div>
+        <label for="dateTo">To</label>
+        <input id="dateTo" type="date" formControlName="dateTo">
+      </div>
+
+      <h6>Age Groups</h6>
+      <div>
+        <input type="checkbox" id="age1" formControlName="minor">
+        <label for="age1">Under 18</label>
+      </div>
+      <div>
+        <input type="checkbox" id="age2" formControlName="adults">
+        <label for="age2">18 - 40</label>
+      </div>
+      <div>
+        <input type="checkbox" id="age3" formControlName="middleAged">
+        <label for="age3">40 - 60</label>
+      </div>
+      <div>
+        <input type="checkbox" id="age4" formControlName="retired">
+        <label for="age4">Over 60</label>
+      </div>
+    </form>
+  </div>
+
+  <div class="card-action">
+    <a href="#">Basic</a>
+    <a href="#">Advanced</a>
+  </div>
+</div>

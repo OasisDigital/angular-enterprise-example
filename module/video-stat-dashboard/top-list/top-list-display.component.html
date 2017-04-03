@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title">Top 5 Preview</div>
+    <div class="collection">
+      <a *ngFor="let video of topList"
+         class="collection-item"
+         (click)="selectVideo(video.id)"
+         [class.active]="currentSelectionID == video.id">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="http://img.youtube.com/vi/{{video.id}}/0.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>{{video.title}}</p>
+              <p>{{video.author}}</p>
+            </div>
+            <div class="card-action">
+              <span>{{video.viewDetails.length}}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

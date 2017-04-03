@@ -1,0 +1,9 @@
+<div class="card">
+  <div *ngIf="currentVideo" class="card-content">
+
+    <div class="card-title">{{currentVideo.title}} - {{currentVideo.author}}</div>
+    <div class="video-container">
+      <iframe width="560" height="315" [src]="currentVideoUrl" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

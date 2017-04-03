@@ -1,0 +1,24 @@
+<div class="card" *ngFor="let chart of graphData">
+  <div class="card-content">
+    <div class="card-title">Views by {{chart.xAxis}}</div>
+
+    <svg [attr.width]="chart.width + 50" [attr.height]="chart.height + 45">
+      <!-- Axis -->
+      <line x1="50" x2="50" y1="1" [attr.y2]="chart.height" stroke-width="1" stroke="black"></line>
+      <line x1="50" x2="499" [attr.y1]="chart.height" [attr.y2]="chart.height" stroke-width="1" stroke="black"></line>
+      <text x="1" y="100">Views</text>
+      <text x="240" [attr.y]="chart.height + 25">{{chart.xAxis}}</text>
+      <text *ngFor="let rect of chart.rectList" [attr.x]="rect.x + rect.width/2 + 43" [attr.y]="chart.height + 14">{{rect.value}}</text>
+      <line stroke-width="1" stroke="black" *ngFor="let rect of chart.rectList" [attr.x1]="rect.x + rect.width/2 + 50" [attr.x2]="rect.x + rect.width/2 + 50" y1="0" [attr.y2]="chart.height + 7"></line>
+      <rect *ngFor="let rect of chart.rectList" [attr.x]="rect.x + 50" [attr.y]="rect.y" [attr.width]="rect.width" [attr.height]="rect.height"
+        stroke="black" fill="black"></rect>
+      <text stroke="white" *ngFor="let rect of chart.rectList" [attr.x]="rect.x + rect.width/2 + 43" [attr.y]="rect.y + 15">{{rect.count}}</text>
+
+      <!--Template example for line graph -->
+      <!--<line x1="50" x2="70" y1="135" y2="85" stroke-width="1" stroke="black"></line>
+      <line x1="70" x2="150" y1="85" y2="50" stroke-width="1" stroke="black"></line>
+      <line x1="150" x2="199" y1="50" y2="165" stroke-width="1" stroke="black"></line>
+      <line x1="199" x2="499" y1="165" y2="165" stroke-width="1" stroke="black"></line>-->
+    </svg>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div *ngIf="viewsFilterState && viewsFilterState.region">
+  <span>Region:</span>
+  <div class="chip">{{viewsFilterState.region}}</div>
+
+  <span>Date Range:
+    <div class="chip">{{viewsFilterState.dateFrom | date:'shortDate'}}</div>
+    <div class="chip">{{viewsFilterState.dateTo | date:'shortDate'}}</div>
+  </span>
+
+  <span>
+    Age Groups:
+    <span *ngFor="let range of ageRanges ; let index = index">
+      {{ index }}
+      <span *ngIf="viewsFilterState.ageRanges[index]" class="chip">
+        {{index | enumToRange}}
+        <i (click)="removeAgeGroup(index)" class="close material-icons">x</i>
+      </span>
+    </span>
+  </span>
+</div>

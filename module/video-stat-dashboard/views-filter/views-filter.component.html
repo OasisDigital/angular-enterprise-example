@@ -1,0 +1,10 @@
+<views-filter-display
+[region]="vfs.region | async"
+[dateFrom]="vfs.dateFrom | async"
+[dateTo]="vfs.dateTo | async"
+[age]="vfs.age | async"
+(regionChange)="vfs.setRegion($event)"
+(dateFromChange)="vfs.setDateFrom($event)"
+(dateToChange)="vfs.setDateTo($event)"
+(ageToggle)="vfs.toggleAge($event)"
+></views-filter-display>

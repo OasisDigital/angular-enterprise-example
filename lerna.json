@@ -1,0 +1,10 @@
+{
+  "lerna": "2.0.0-beta.38",
+  "packages": [
+    "module/*",
+    "server/*",
+    "application/*"
+  ],
+  "version": "0.0.0",
+  "npmClient": "yarn"
+}
