@@ -95,21 +95,15 @@ yarn
 
 General fragility.
 
-Non-application modules don't have their own NPM dependencies declared - if they
-are, compilation breaks because neither NPM or CLI/webpack understand that the
-different copies of Angular are really the same Angular. This makes for an awful
-development experience. I have a fix in mind for this, with a few extra
-boilerplate files per module.
-
 A -> B, B -> C, A must declare a dependency on C for it to work. This is
 because B gets compiled in A's context.
 
 Not a standard use case for CLI and other Angular tooling, so error messages are
 often unhelpful.
 
-Example only shows how to compile and run the applications as a whole. I have in
-mind a mechanism to include a small amount of boilerplate around each module,
-and get a way to run and develop individual modules outside an app context.
+Example only shows how to run the applications as a whole. I have in mind a
+mechanism to include a small amount of boilerplate around each module, and get a
+way to run (not just compile) individual modules outside an app context.
 
 The server provides a "push" data flow, using SSE - TODO, add a client module to
 show this data in use.

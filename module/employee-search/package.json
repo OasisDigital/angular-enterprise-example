@@ -4,13 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"Package contents are built by packages that depend on it.\"",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oasis Digital Solutions Inc. (https://oasisdigital.com)",
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@oasisdigital/employee-display": "*"
+    "@angular/core": "4.0.1",
+    "@angular/compiler": "4.0.1",
+    "@angular/common": "4.0.1",
+    "@oasisdigital/employee-display": "*",
+    "rxjs": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "~2.2.0"
   }
 }

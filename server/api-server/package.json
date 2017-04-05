@@ -7,6 +7,7 @@
   "scripts": {
     "clean": "npm install rimraf && rimraf build",
     "build": "tsc --outDir build",
+    "prod": "npm run build",
     "prepublish": "npm run build",
     "lint": "tslint \"src/**/*.ts\"",
     "debug": "node-debug build/main.js",

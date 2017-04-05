@@ -1,6 +1,8 @@
 {
   "scripts": {
     "build": "lerna run build",
+    "prod": "lerna run prod",
+    "both": "run-s build prod",
     "clean": "lerna clean --yes && node rimraf-standalone.js node_modules",
     "postinstall": "lerna bootstrap",
     "run:admin": "lerna run start --stream --scope @oasisdigital/admin",
@@ -12,6 +14,14 @@
     "portal": "run-p -l run:portal run:server"
   },
   "devDependencies": {
+    "@angular/common": "4.0.1",
+    "@angular/compiler": "4.0.1",
+    "@angular/core": "4.0.1",
+    "@angular/forms": "4.0.1",
+    "@angular/http": "4.0.1",
+    "@angular/platform-browser": "4.0.1",
+    "@angular/platform-browser-dynamic": "4.0.1",
+    "@angular/router": "4.0.1",
     "codelyzer": "~2.0.0",
     "lerna": "2.0.0-beta.38",
     "npm-run-all": "^4.0.2",
