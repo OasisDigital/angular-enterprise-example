@@ -16,6 +16,6 @@
     "@angular/common": "4.0.1"
   },
   "devDependencies": {
-    "typescript": "~2.2.0"
+    "typescript": "^2.2.2"
   }
 }

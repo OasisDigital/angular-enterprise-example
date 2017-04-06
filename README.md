@@ -10,7 +10,8 @@ particularly as all of the tools improve.
 1. Accomodate sprawling Angular applications - and collections of applications
    with partially overlapping code behind them.
 2. Manage complexity, size, and scale.
-3. Bend tools designed for a simple application with a single codebase, to work
+3. Use Angular CLI to the extent possible.
+4. Bend tools designed for a simple application with a single codebase, to work
    acceptably with more than that.
 
 ## Explanation - how it works (so far)
@@ -95,8 +96,9 @@ yarn
 
 General fragility.
 
-A -> B, B -> C, A must declare a dependency on C for it to work. This is
-because B gets compiled in A's context.
+A -> B, B -> C, A must declare a dependency on C for it to work. This is because
+B gets compiled in A's context. Ideally this would be eliminated - but in the
+meantime it could be automated.
 
 Not a standard use case for CLI and other Angular tooling, so error messages are
 often unhelpful.
