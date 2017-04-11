@@ -18,12 +18,10 @@
     "@angular/router": "4.0.1",
     "@ngrx/core": "1.2.0",
     "@ngrx/store": "2.2.1",
-    "@ngrx/store-devtools": "^3.2.4",
     "@oasisdigital/age-range": "*",
     "lodash": "4.17.4",
     "moment": "2.17.1",
-    "ngrx-store-freeze": "^0.1.9",
-    "rxjs": "^5.1.0"
+    "rxjs": "^5.3.0"
   },
   "devDependencies": {
     "typescript": "^2.2.2"

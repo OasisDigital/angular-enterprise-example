@@ -12,7 +12,6 @@ export interface IAppState {
   dashboard: IDashboardState;
 }
 
-
 export interface IDashboardState {
   videoList: IVideo[];
   viewsFilter: IViewsFilterState;

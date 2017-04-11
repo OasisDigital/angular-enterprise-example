@@ -58,7 +58,7 @@ dependencies look like this:
     "@oasisdigital/employee-display": "*"
 ```
 
-Such dependencies refer to other packages part of the same application suite.
+Such dependencies refer to other packages, part of the same application suite.
 
 Many of the chunks of functionality in the example applications are similar to
 code examples we use in Angular Boot Camp:
@@ -67,6 +67,8 @@ https://angularbootcamp.com/
 
 ... Lightly repurposed and rearranged for use in this example.
 
+Two of the modules use ngrx/store for state management, with the admin
+application showing how to unite them both into the same store.
 
 ### Running the example applications
 
@@ -109,6 +111,11 @@ way to run (not just compile) individual modules outside an app context.
 
 The server provides a "push" data flow, using SSE - TODO, add a client module to
 show this data in use.
+
+The code showing how to combine state from two different modules into the same
+ngrx/store, currently relies on eager loading. A future version of Store will
+add support for lazy loading of modules sharing the same store. When that ships,
+this example will be updated to use it.
 
 Probably more.
 

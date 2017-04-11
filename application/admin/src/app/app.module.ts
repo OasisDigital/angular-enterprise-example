@@ -8,6 +8,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EmployeeSearchModule } from '@oasisdigital/employee-search';
 
 import { DashboardModule, AppService } from '@oasisdigital/video-stat-dashboard';
+
+import { FruitBasketModule } from '@oasisdigital/fruit-basket';
+
 import { reducer } from './app-state';
 
 import { AppComponent } from './app.component';
@@ -31,6 +34,7 @@ const ROUTES: Route[] = [
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension({ maxAge: 5 }),
     DashboardModule,
+    FruitBasketModule,
     EmployeeSearchModule
   ],
   providers: [AppService],
