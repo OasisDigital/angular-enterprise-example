@@ -3,7 +3,8 @@
     "build": "lerna run build",
     "prod": "lerna run prod",
     "both": "run-s build prod",
-    "clean": "lerna clean --yes && node rimraf-standalone.js node_modules",
+    "test": "run-s prod",
+    "clean": "lerna clean --yes && node rimraf-standalone.js node_modules \"**/yarn-error.log\"",
     "postinstall": "lerna bootstrap",
     "run:admin": "lerna run start --stream --scope @oasisdigital/admin",
     "run:agent": "lerna run start --stream --scope @oasisdigital/agent",
@@ -14,18 +15,21 @@
     "portal": "run-p -l run:portal run:server"
   },
   "devDependencies": {
-    "@angular/common": "4.0.1",
-    "@angular/compiler": "4.0.1",
-    "@angular/core": "4.0.1",
-    "@angular/forms": "4.0.1",
-    "@angular/http": "4.0.1",
-    "@angular/platform-browser": "4.0.1",
-    "@angular/platform-browser-dynamic": "4.0.1",
-    "@angular/router": "4.0.1",
-    "codelyzer": "~2.0.0",
-    "lerna": "2.0.0-beta.38",
+    "@angular/common": "4.0.2",
+    "@angular/compiler": "4.0.2",
+    "@angular/core": "4.0.2",
+    "@angular/forms": "4.0.2",
+    "@angular/http": "4.0.2",
+    "@angular/platform-browser": "4.0.2",
+    "@angular/platform-browser-dynamic": "4.0.2",
+    "@angular/router": "4.0.2",
+    "codelyzer": "~2.1.1",
+    "core-js": "^2.4.1",
+    "lerna": "2.0.0-rc.1",
     "npm-run-all": "^4.0.2",
+    "rxjs": "^5.3.0",
     "tslint": "~4.5.0",
-    "typescript": "^2.2.2"
+    "typescript": "^2.2.2",
+    "zone.js": "^0.8.5"
   }
 }

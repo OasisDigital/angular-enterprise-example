@@ -1,5 +1,7 @@
 # Large Angular application structure example
 
+[![Build Status](https://travis-ci.org/OasisDigital/scalable-enterprise-angular.svg?branch=master)](https://travis-ci.org/OasisDigital/scalable-enterprise-angular)
+
 ## Work in progress
 
 This is a work in progress. Likely to have many changes over time,
