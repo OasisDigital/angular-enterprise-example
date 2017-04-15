@@ -2,9 +2,7 @@
 
 [![Build Status](https://travis-ci.org/OasisDigital/scalable-enterprise-angular.svg?branch=master)](https://travis-ci.org/OasisDigital/scalable-enterprise-angular)
 
-## Work in progress
-
-This is a work in progress. Likely to have many changes over time,
+This is a work in progress. It is likely to have many changes over time,
 particularly as all of the tools improve.
 
 ## Goals
@@ -16,41 +14,48 @@ particularly as all of the tools improve.
 4. Bend tools designed for a simple application with a single codebase, to work
    acceptably with more than that.
 
+## Technologies used
+
+* Angular 4
+* Angular CLI
+* NgRx/Store, Store addons, including dev-tools and freeze
+* Lerna
+* RxJS, not only as a dependency of Angular
+* Lodash, Moment
+
 ## Explanation - how it works (so far)
 
-This technique uses Lerna to wire up interproject dependencies. This is an
+This example uses Lerna to wire up interproject dependencies. This is an
 atypical use of Lerna, which exists primarily to support **publishing** a set of
 related projects. Here we are not publishing at all, but rather using Lerna only
 for cross-project linking. It is not yet clear whether the Lerna maintainers
 endorse or tolerate this (mis?)use of Lerna.
 
-The (family of related applications) is decomposed in to:
+A family of related applications is decomposed to:
 
 * Several top-level applications, in the `application` directory.
 * Some modules, in the `module` directory.
 * One or more servers, in the `server` directory.
 
 There is a many-to-many relatioship between applications and modules, and
-modules can use other modules.
-
-Lerna wires up the dependencies using symlinks.
+modules can use other modules. Lerna wires up the dependencies using symlinks.
 
 ### Example application
 
 The example applications are not very complex - certainly not complex enough to
 warrant the amount of complexity used to build it. Real application of this
-modest complexity would be best structured in a simpler way.
+modest complexity could easily be written as a single project (each).
 
-Still, the example applications reuse blocks of functionality, so they
-illustrate the point of this multi-package approach.
+Still, the example applications reuse blocks of functionality, so they show the
+value of this multi-package approach.
 
 There are two application to run:
 
-* Admin - bundles two feature modules
+* Admin - bundles three feature modules
 * Portal - bundles one feature module
 
-The feature modules, as well as some other modules they depend on, are all in
-the module directory.
+The feature modules, as well as some other modules they depend on, are in the
+module directory.
 
 To understand the automatic lacing together of dependencies, study the
 `package.json` file of each module, in particular the dependencies. Note the
@@ -67,7 +72,7 @@ code examples we use in Angular Boot Camp:
 
 https://angularbootcamp.com/
 
-... Lightly repurposed and rearranged for use in this example.
+...repurposed and rearranged for use in this example.
 
 Two of the modules use ngrx/store for state management, with the admin
 application showing how to unite them both into the same store.
@@ -96,39 +101,19 @@ yarn run clean
 yarn
 ```
 
-## Issues and annoyances (TODO)
+## Issues, Annoyances, TODOs
 
-General fragility.
+... in the [issue tracker](https://github.com/OasisDigital/scalable-enterprise-angular/issues)
 
-A -> B, B -> C, A must declare a dependency on C for it to work. This is because
-B gets compiled in A's context. Ideally this would be eliminated - but in the
-meantime it could be automated.
-
-Not a standard use case for CLI and other Angular tooling, so error messages are
-often unhelpful.
-
-Example only shows how to run the applications as a whole. I have in mind a
-mechanism to include a small amount of boilerplate around each module, and get a
-way to run (not just compile) individual modules outside an app context.
-
-The server provides a "push" data flow, using SSE - TODO, add a client module to
-show this data in use.
-
-The code showing how to combine state from two different modules into the same
-ngrx/store, currently relies on eager loading. A future version of Store will
-add support for lazy loading of modules sharing the same store. When that ships,
-this example will be updated to use it.
-
-Probably more.
+Also, as this is not the normal vanilla use case for CLI and other Angular
+tooling, error messages are sometimes unhelpful. That probably can't be fixed in
+this code, but should improve as CLI continues to be used in more different
+situations and continues to improve.
 
 ## Contact us
 
-Main author:
+Main author: [Kyle Cordes](http://kylecordes.com/)
 
-Kyle Cordes, http://kylecordes.com/
+Much help from the team at: [Oasis Digital](https://oasisdigital.com/)
 
-Much help from the rest of the team at:
-
-Oasis Digital, https://oasisdigital.com/
-
-Angular Boot Camp, https://angularbootcamp.com/
+... who teach [Angular Boot Camp](https://angularbootcamp.com/)
