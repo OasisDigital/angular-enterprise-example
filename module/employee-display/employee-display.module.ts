@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { EmployeeDetailComponent } from './employee-detail-view/employee-detail-view';
-import { EmployeeListTableViewComponent } from './employee-list-table-view/employee-list-table-view';
+import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
+import { EmployeeDetailEditComponent } from './employee-detail-edit/employee-detail-edit.component';
+import { EmployeeListTableViewComponent } from './employee-list-table-view/employee-list-table-view.component';
 
 @NgModule({
   declarations: [
-    EmployeeDetailComponent,
+    EmployeeDetailViewComponent,
+    EmployeeDetailEditComponent,
     EmployeeListTableViewComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
-    EmployeeDetailComponent,
+    EmployeeDetailViewComponent,
+    EmployeeDetailEditComponent,
     EmployeeListTableViewComponent
   ]
 })

@@ -1,5 +1,5 @@
 {
-  "name": "@oasisdigital/fruit-basket",
+  "name": "@oasisdigital/employee-management",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,8 +14,8 @@
     "@angular/core": "4.0.2",
     "@angular/compiler": "4.0.2",
     "@angular/common": "4.0.2",
-    "@ngrx/core": "1.2.0",
-    "@ngrx/store": "2.2.1",
+    "@oasisdigital/employee-display": "*",
+    "@oasisdigital/employee-loader": "*",
     "rxjs": "^5.3.0"
   },
   "devDependencies": {

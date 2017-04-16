@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Route } from '@angular/router';
-import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Route } from '@angular/router';
 
 import { EmployeeDisplayModule } from '@oasisdigital/employee-display';
+import { EmployeeLoader } from '@oasisdigital/employee-loader';
 
-import { EmployeeListComponent } from './employee-list/employee-list';
-import { EmployeeLoader } from './employee-loader';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 const ROUTES: Route[] = [
   { path: 'emp-search', component: EmployeeListComponent }
@@ -28,5 +28,3 @@ const ROUTES: Route[] = [
   providers: [EmployeeLoader]
 })
 export class EmployeeSearchModule { }
-
-// emp-search

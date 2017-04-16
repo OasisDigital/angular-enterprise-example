@@ -5,16 +5,17 @@ import { FormControl } from '@angular/forms';
 import { sortBy } from 'lodash';
 
 import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/publishReplay';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/debounceTime';
 
-import { EmployeeLoader } from '../employee-loader';
+import { EmployeeLoader } from '@oasisdigital/employee-loader';
 import { IEmployee } from '@oasisdigital/employee-display';
 
 @Component({
-  selector: 'abc-page',
-  templateUrl: './employee-list.html'
+  selector: 'employee-list',
+  templateUrl: './employee-list.component.html'
 })
 export class EmployeeListComponent {
   nameFilter = new FormControl('');
@@ -35,13 +36,15 @@ export class EmployeeListComponent {
     this.filteredList = Observable.combineLatest(
       nameFilter$
         .debounceTime(250)
-        .switchMap(x => loader.getList(x)),
+        .switchMap(x => loader.loadAllFiltered(x)),
       sort$,
       (list, sort) => sortBy(list, sort)
     );
 
     // Detail reacts to selected employee changes
     this.selectedEmployee = this.selectedId
-      .switchMap(id => loader.getDetails(id));
+      .switchMap(id => loader.loadOne(id))
+      .publishReplay(1)
+      .refCount();
   }
 }

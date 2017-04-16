@@ -5,14 +5,13 @@ import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { EmployeeSearchModule } from '@oasisdigital/employee-search';
-
-import { DashboardModule, AppService } from '@oasisdigital/video-stat-dashboard';
-
-import { FruitBasketModule } from '@oasisdigital/fruit-basket';
+import { EmployeeListModule } from '@oasisdigital/employee-list-feature';
+import { EmployeeManagementModule } from '@oasisdigital/employee-management';
+import { EmployeeSearchModule } from '@oasisdigital/employee-search-feature';
+import { DashboardModule, AppService } from '@oasisdigital/video-stat-dashboard-feature';
+import { FruitBasketModule } from '@oasisdigital/fruit-basket-feature';
 
 import { reducer } from './app-state';
-
 import { AppComponent } from './app.component';
 
 const ROUTES: Route[] = [
@@ -35,6 +34,8 @@ const ROUTES: Route[] = [
     StoreDevtoolsModule.instrumentOnlyWithExtension({ maxAge: 5 }),
     DashboardModule,
     FruitBasketModule,
+    EmployeeListModule,
+    EmployeeManagementModule,
     EmployeeSearchModule
   ],
   providers: [AppService],

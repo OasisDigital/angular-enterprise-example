@@ -9,7 +9,7 @@
     "run:admin": "lerna run start --stream --scope @oasisdigital/admin",
     "run:agent": "lerna run start --stream --scope @oasisdigital/agent",
     "run:portal": "lerna run start --stream --scope @oasisdigital/portal",
-    "run:server": "lerna run start --stream --scope @oasisdigital/api-server",
+    "run:server": "lerna run start --stream --scope @oasisdigital/employee-server",
     "admin": "run-p -l run:admin run:server",
     "agent": "run-p -l run:agent run:server",
     "portal": "run-p -l run:portal run:server"

@@ -18,7 +18,13 @@ const API_JITTER = 100;
 export class EmployeeLoader {
   constructor(private http: Http) { }
 
-  getList(searchText: string): Observable<IEmployee[]> {
+  loadAll(): Observable<IEmployee[]> {
+    return this.http.get(API_URL + '/employees')
+      .map(unwrapData)
+      .delay(randomDelay());
+  }
+
+  loadAllFiltered(searchText: string): Observable<IEmployee[]> {
     // One of several ways to set up HTTP request URL parameters
     // without concatenating them manually.
     const opts = new RequestOptions({
@@ -32,7 +38,7 @@ export class EmployeeLoader {
       .delay(randomDelay());
   }
 
-  getDetails(employeeId: number): Observable<IEmployee> {
+  loadOne(employeeId: number): Observable<IEmployee> {
     return this.http.get(`${API_URL}/employees/${employeeId}`)
       .map(unwrapData)
       .delay(randomDelay());

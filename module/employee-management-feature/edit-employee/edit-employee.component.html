@@ -1,0 +1,14 @@
+<section class="card">
+  <div class="card-content">
+    <div class="card-title">edit Employee detail</div>
+
+    <employee-detail-edit [employee]="employee$ | async"></employee-detail-edit>
+
+    <button class="btn" (click)="deleteClicked()"
+      [class.disabled]="false">Delete</button>
+    <button class="btn" (click)="saveClicked()"
+      [class.disabled]="false">Save</button>
+    <button class="btn" (click)="cancelClicked()"
+      [class.disabled]="false">Cancel</button>
+  </div>
+</section>

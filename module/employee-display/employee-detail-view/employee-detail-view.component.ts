@@ -4,8 +4,8 @@ import { IEmployee } from '../employee';
 
 @Component({
   selector: 'employee-detail-view',
-  templateUrl: './employee-detail-view.html'
+  templateUrl: './employee-detail-view.component.html'
 })
-export class EmployeeDetailComponent {
+export class EmployeeDetailViewComponent {
   @Input() employee: IEmployee;
 }
