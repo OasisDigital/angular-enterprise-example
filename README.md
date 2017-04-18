@@ -40,6 +40,16 @@ A family of related applications is decomposed to:
 There is a many-to-many relatioship between applications and modules, and
 modules can use other modules. Lerna wires up the dependencies using symlinks.
 
+### 4 Layers / bins
+
+A family of applications is divided in to many modules, which are then organized
+into 4 layers / bins:
+
+* Applications
+* Top-level features (which should be lazy loaded - TODO)
+* Modules used by both features, and by server code
+* Server(s)
+
 ### Example application
 
 The example applications are not very complex - certainly not complex enough to

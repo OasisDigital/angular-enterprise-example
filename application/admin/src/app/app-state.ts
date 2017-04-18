@@ -2,8 +2,8 @@ import { Store, Action, combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core/compose';
 import { storeFreeze } from 'ngrx-store-freeze';
 
-import { dashboardReducer } from '@oasisdigital/video-stat-dashboard-feature';
-import { fruitReducer } from '@oasisdigital/fruit-basket-feature';
+import { dashboardReducer } from '@oasisdigital/video-stat-dashboard';
+import { fruitReducer } from '@oasisdigital/fruit-basket';
 
 import { environment } from '../environments/environment';
 

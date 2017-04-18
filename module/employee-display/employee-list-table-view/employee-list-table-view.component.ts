@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { IEmployee } from '../employee';
+import { IEmployee } from '@oasisdigital/app-schema';
 
 @Component({
   selector: 'employee-list-table-view',

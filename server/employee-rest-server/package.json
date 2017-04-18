@@ -1,0 +1,29 @@
+{
+  "name": "@oasisdigital/employee-rest-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "npm install rimraf && rimraf build",
+    "build": "tsc --outDir build",
+    "prod": "npm run build",
+    "prepublish": "npm run build",
+    "lint": "tslint \"src/**/*.ts\"",
+    "debug": "node-debug build/main.js",
+    "start": "node build/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "go": "npm run build && npm run start"
+  },
+  "author": "Oasis Digital Solutions Inc. (https://oasisdigital.com)",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.9.6",
+    "sse-channel": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.12",
+    "tslint": "~4.5.0",
+    "typescript": "^2.2.2"
+  }
+}

@@ -1,6 +1,6 @@
 # Modules
 
-The modules in here will contain most of the code. Module can include:
+The modules in here will contain much of the code. Module can include:
 
 * Angular code, usually packages as a NgModules
 * Angular widgets (visual gadgets), or services

@@ -1,5 +1,5 @@
 {
-  "name": "@oasisdigital/employee-display",
+  "name": "@oasisdigital/video-stat-dashboard",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,14 @@
     "@angular/core": "4.0.2",
     "@angular/compiler": "4.0.2",
     "@angular/common": "4.0.2",
-    "@oasisdigital/app-schema": "*"
+    "@angular/forms": "4.0.2",
+    "@angular/router": "4.0.2",
+    "@ngrx/core": "1.2.0",
+    "@ngrx/store": "2.2.1",
+    "@oasisdigital/age-range": "*",
+    "lodash": "4.17.4",
+    "moment": "2.17.1",
+    "rxjs": "^5.3.0"
   },
   "devDependencies": {
     "typescript": "^2.2.2"

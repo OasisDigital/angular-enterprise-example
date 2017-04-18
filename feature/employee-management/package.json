@@ -1,5 +1,5 @@
 {
-  "name": "@oasisdigital/employee-display",
+  "name": "@oasisdigital/employee-management",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,10 @@
     "@angular/core": "4.0.2",
     "@angular/compiler": "4.0.2",
     "@angular/common": "4.0.2",
-    "@oasisdigital/app-schema": "*"
+    "@oasisdigital/app-schema": "*",
+    "@oasisdigital/employee-display": "*",
+    "@oasisdigital/employee-api": "*",
+    "rxjs": "^5.3.0"
   },
   "devDependencies": {
     "typescript": "^2.2.2"

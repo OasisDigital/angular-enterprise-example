@@ -1,5 +1,5 @@
 {
-  "name": "@oasisdigital/employee-display",
+  "name": "@oasisdigital/app-schema",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,10 +11,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@angular/core": "4.0.2",
-    "@angular/compiler": "4.0.2",
-    "@angular/common": "4.0.2",
-    "@oasisdigital/app-schema": "*"
   },
   "devDependencies": {
     "typescript": "^2.2.2"

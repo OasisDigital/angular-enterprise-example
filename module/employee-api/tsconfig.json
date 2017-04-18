@@ -1,15 +1,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
-    "sourceMap": true,
-    "declaration": false,
+    "baseUrl": ".",
+    "noEmit": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "target": "es5",
+    "paths": {
+      "rxjs/*": ["node_modules/rxjs/*"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],

@@ -1,0 +1,1 @@
+export { IEmployee } from './employee';
