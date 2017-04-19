@@ -5,9 +5,6 @@ import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { EmployeeListModule } from '@oasisdigital/employee-list';
-import { EmployeeManagementModule } from '@oasisdigital/employee-management';
-import { EmployeeSearchModule } from '@oasisdigital/employee-search';
 import { DashboardModule, AppService } from '@oasisdigital/video-stat-dashboard';
 import { FruitBasketModule } from '@oasisdigital/fruit-basket';
 
@@ -20,6 +17,18 @@ const ROUTES: Route[] = [
     pathMatch: 'full',
     redirectTo: 'videos'
   },
+  {
+    path: 'emp-list',
+    loadChildren: '@oasisdigital/employee-list#EmployeeListModule'
+  },
+  {
+    path: 'emp-search',
+    loadChildren: '@oasisdigital/employee-search#EmployeeSearchModule'
+  },
+  {
+    path: 'emp-man',
+    loadChildren: '@oasisdigital/employee-management#EmployeeManagementModule'
+  }
 ];
 
 @NgModule({
@@ -31,12 +40,9 @@ const ROUTES: Route[] = [
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     StoreModule.provideStore(reducer),
-    StoreDevtoolsModule.instrumentOnlyWithExtension({ maxAge: 5 }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension({ maxAge: 10 }),
     DashboardModule,
-    FruitBasketModule,
-    EmployeeListModule,
-    EmployeeManagementModule,
-    EmployeeSearchModule
+    FruitBasketModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

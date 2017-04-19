@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { IEmployee } from '@oasisdigital/app-schema';
@@ -14,7 +15,9 @@ import { EmployeeNavigation } from '../employee-navigation.service';
 export class AddEmployeeComponent {
   fg: FormGroup;
 
-  constructor(private api: EmployeeApi, private nav: EmployeeNavigation, fb: FormBuilder) {
+  constructor(private api: EmployeeApi, private nav: EmployeeNavigation,
+    fb: FormBuilder, route: ActivatedRoute) {
+    this.nav.calculateModuleBaseRoute(route);
     this.fg = fb.group({});
   }
 

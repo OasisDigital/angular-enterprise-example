@@ -4,23 +4,29 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EmployeeNavigation {
+  private base: ActivatedRoute;
+
   constructor(private router: Router) {
   }
 
-  employeeId(route: ActivatedRoute): Observable<number> {
-    return route.params
+  calculateModuleBaseRoute(route: ActivatedRoute) {
+    this.base = route.pathFromRoot[1];
+  }
+
+  employeeId(componentRoute: ActivatedRoute): Observable<number> {
+    return componentRoute.params
       .map(params => params['id']);
   }
 
   list() {
-    this.router.navigate(['/emp-man']);
+    this.router.navigate(['.'], { relativeTo: this.base });
   }
 
   add() {
-    this.router.navigate(['/emp-man', 'add']);
+    this.router.navigate(['add'], { relativeTo: this.base });
   }
 
   edit(id: number) {
-    this.router.navigate(['/emp-man', id]);
+    this.router.navigate([id], { relativeTo: this.base });
   }
 }

@@ -6,9 +6,9 @@ import { EmployeeFieldsComponent } from './employee-fields/employee-fields.compo
 import { ManagementScreenComponent } from './management-screen/management-screen.component';
 
 const ROUTES: Route[] = [
-  { path: 'emp-man/add', component: AddEmployeeComponent },
-  { path: 'emp-man/:id', component: EditEmployeeComponent },
-  { path: 'emp-man', component: ManagementScreenComponent }
+  { path: 'add', component: AddEmployeeComponent },
+  { path: ':id', component: EditEmployeeComponent },
+  { path: '', component: ManagementScreenComponent }
 ];
 
 export const ROUTER_MODULE = RouterModule.forChild(ROUTES);

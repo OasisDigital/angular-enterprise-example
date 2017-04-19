@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { sortBy } from 'lodash';
 
@@ -17,7 +18,9 @@ export class ManagementScreenComponent {
   sort = new FormControl('last_name');
   filteredList: Observable<IEmployee[]>;
 
-  constructor(api: EmployeeApi, private nav: EmployeeNavigation) {
+  constructor(api: EmployeeApi, private nav: EmployeeNavigation, route: ActivatedRoute) {
+    this.nav.calculateModuleBaseRoute(route);
+
     const nameFilter$ = this.nameFilter.valueChanges
       .startWith(this.nameFilter.value)
       .debounceTime(250);

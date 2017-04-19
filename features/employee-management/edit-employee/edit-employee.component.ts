@@ -20,6 +20,7 @@ export class EditEmployeeComponent implements OnDestroy {
 
   constructor(private nav: EmployeeNavigation,
     private api: EmployeeApi, fb: FormBuilder, route: ActivatedRoute) {
+    this.nav.calculateModuleBaseRoute(route);
     this.fg = fb.group({});
 
     const employee$ = nav.employeeId(route)

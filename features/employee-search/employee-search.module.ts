@@ -10,7 +10,7 @@ import { EmployeeApi } from '@oasisdigital/employee-api';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 const ROUTES: Route[] = [
-  { path: 'emp-search', component: EmployeeListComponent }
+  { path: '', component: EmployeeListComponent }
 ];
 
 @NgModule({

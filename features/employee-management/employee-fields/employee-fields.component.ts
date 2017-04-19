@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs/Subscription';
 export class EmployeeFieldsComponent implements OnInit {
   @Input()
   parentFormGroup: FormGroup;
-
   fg: FormGroup;
 
   constructor(fb: FormBuilder) {
