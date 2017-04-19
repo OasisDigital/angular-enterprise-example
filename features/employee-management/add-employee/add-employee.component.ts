@@ -1,27 +1,30 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 
 import { IEmployee } from '@oasisdigital/app-schema';
 import { EmployeeApi } from '@oasisdigital/employee-api';
+
+import { EmployeeNavigation } from '../employee-navigation.service';
 
 @Component({
   selector: 'add-employee',
   templateUrl: './add-employee.component.html'
 })
 export class AddEmployeeComponent {
-  employee: IEmployee;
+  fg: FormGroup;
 
-  constructor(private router: Router, loader: EmployeeApi) {
-    this.employee = undefined; // A valid IEmployee, and harmless.
+  constructor(private api: EmployeeApi, private nav: EmployeeNavigation, fb: FormBuilder) {
+    this.fg = fb.group({});
   }
 
   cancelClicked() {
-    this.router.navigate(['/emp-man']);
+    this.nav.list();
   }
 
   saveClicked() {
-    
+    this.api.saveNew({
+      ...this.fg.value.employee
+    }).subscribe(x => this.nav.list());
   }
-
 }

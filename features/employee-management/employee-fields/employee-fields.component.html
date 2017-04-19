@@ -1,0 +1,50 @@
+<!-- TODO, switch out to using Angular Material or similar, to reduce the
+     boilerplate for validation.
+-->
+
+<div class="row" [formGroup]="fg">
+  <div class="col s2">
+    <label for="first_name">first_name</label>
+    <input id="first_name" type="text" formControlName="first_name"
+      [class.valid]="fg.get('first_name').valid"
+      [class.invalid]="! fg.get('first_name').valid"
+    >
+    <div *ngIf="fg.get('first_name').hasError('required') && fg.get('first_name').dirty">Please enter a name</div>
+  </div>
+
+  <div class="col s2">
+    <label for="last_name">last_name</label>
+    <input id="last_name" type="text" formControlName="last_name"
+      [class.valid]="fg.get('last_name').valid"
+      [class.invalid]="! fg.get('last_name').valid"
+    >
+    <div *ngIf="fg.get('last_name').hasError('required') && fg.get('last_name').dirty">Please enter a name</div>
+  </div>
+
+  <div class="col s3">
+    <label for="email">email</label>
+    <input id="email" type="text" formControlName="email"
+      [class.valid]="fg.get('email').valid"
+      [class.invalid]="! fg.get('email').valid"
+    >
+    <div *ngIf="fg.get('email').hasError('required') && fg.get('email').dirty">Please enter email</div>
+  </div>
+
+  <div class="col s2">
+    <label for="hourly_wage">hourly_wage</label>
+    <input id="hourly_wage" type="text" formControlName="hourly_wage"
+      [class.valid]="fg.get('hourly_wage').valid"
+      [class.invalid]="! fg.get('hourly_wage').valid"
+    >
+    <div *ngIf="fg.get('hourly_wage').hasError('required') && fg.get('hourly_wage').dirty">Please enter wage</div>
+  </div>
+
+  <div class="col s2">
+    <label for="hours_worked">hours_worked</label>
+    <input id="hours_worked" type="text" formControlName="hours_worked"
+      [class.valid]="fg.get('hours_worked').valid"
+      [class.invalid]="! fg.get('hours_worked').valid"
+    >
+    <div *ngIf="fg.get('hours_worked').hasError('required') && fg.get('hours_worked').dirty">Please enter hours</div>
+  </div>
+</div>

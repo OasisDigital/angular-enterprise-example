@@ -1,10 +1,10 @@
 {
   "lerna": "2.0.0-rc.1",
   "packages": [
-    "module/*",
-    "feature/*",
-    "server/*",
-    "application/*"
+    "modules/*",
+    "features/*",
+    "servers/*",
+    "applications/*"
   ],
   "version": "0.0.0",
   "npmClient": "yarn"

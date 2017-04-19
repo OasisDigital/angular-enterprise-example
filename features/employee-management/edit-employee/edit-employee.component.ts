@@ -1,11 +1,13 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import { IEmployee } from '@oasisdigital/app-schema';
 import { EmployeeApi } from '@oasisdigital/employee-api';
+
+import { EmployeeNavigation } from '../employee-navigation.service';
 
 @Component({
   selector: 'edit-employee',
@@ -16,22 +18,21 @@ export class EditEmployeeComponent implements OnDestroy {
   sub: Subscription;
   id: number;
 
-  constructor(route: ActivatedRoute, private router: Router, private api: EmployeeApi, fb: FormBuilder) {
-    const employee$ = route.params
-      .map(params => params['id'])
+  constructor(private nav: EmployeeNavigation,
+    private api: EmployeeApi, fb: FormBuilder, route: ActivatedRoute) {
+    this.fg = fb.group({});
+
+    const employee$ = nav.employeeId(route)
       .switchMap(id => api.loadOne(id))
       .share();
-    this.fg = fb.group({
-      'first_name': ['', Validators.required],
-      'last_name': ['', [Validators.required, Validators.minLength(3)]],
-      'email': [''],
-      'hourly_wage': ['', [Validators.required, Validators.pattern('[0-9]+')]]
-    });
 
     this.sub = employee$.subscribe(e => {
       this.id = e.id;
       const { first_name, last_name, email, hourly_wage } = e;
-      this.fg.setValue({ first_name, last_name, email, hourly_wage });
+      const hours_worked = e.hours_worked || 0;
+      this.fg.setValue({
+        employee: { first_name, last_name, email, hourly_wage, hours_worked }
+      });
     });
   }
 
@@ -40,17 +41,18 @@ export class EditEmployeeComponent implements OnDestroy {
   }
 
   cancelClicked() {
-    this.router.navigate(['/emp-man']);
+    this.nav.list();
   }
 
   saveClicked() {
     this.api.save({
-      ...this.fg.value,
+      ...this.fg.value.employee,
       id: this.id
-    }).subscribe();
+    }).subscribe(x => this.nav.list());
   }
 
   deleteClicked() {
+    this.api.delete(this.id).subscribe(x => this.nav.list());
   }
 
 }

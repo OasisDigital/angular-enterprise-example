@@ -637,7 +637,8 @@
       "first_name": "Rachel",
       "last_name": "Adams",
       "email": "radams25@moonfruit.com",
-      "hourly_wage": "3",
+      "hours_worked": "05",
+      "hourly_wage": "30",
       "id": 78
     },
     {
@@ -761,12 +762,11 @@
       "hourly_wage": 14
     },
     {
-      "id": 94,
       "first_name": "Frances",
       "last_name": "Armstrong",
       "email": "farmstrong2l@salon.com",
-      "hours_worked": 7,
-      "hourly_wage": 12
+      "hourly_wage": "125",
+      "id": 94
     },
     {
       "id": 95,
@@ -815,6 +815,14 @@
       "email": "chunter2r@biblegateway.com",
       "hours_worked": 6,
       "hourly_wage": 9
+    },
+    {
+      "first_name": "foo",
+      "last_name": "bar",
+      "email": "jiojiojio",
+      "hours_worked": "4",
+      "hourly_wage": "5",
+      "id": 101
     }
   ]
 }

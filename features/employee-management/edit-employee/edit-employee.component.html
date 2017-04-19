@@ -1,0 +1,17 @@
+<section type="button" class="card">
+  <div class="card-content">
+    <div class="card-title">Edit employee</div>
+
+    <form [formGroup]="fg">
+      <employee-fields [parentFormGroup]="fg"></employee-fields>
+
+      <button type="button" class="btn" (click)="deleteClicked()"
+        [class.disabled]="false">Delete</button>
+      <button type="button" class="btn" (click)="saveClicked()"
+        [class.disabled]="false">Save</button>
+      <button type="button" class="btn" (click)="cancelClicked()"
+        [class.disabled]="false">Cancel</button>
+    </form>
+
+  </div>
+</section>

@@ -52,6 +52,18 @@ export class EmployeeApi {
       .map(unwrapData)
       .delay(randomDelay());
   }
+
+  saveNew(employee: IEmployee) {
+    return this.http.post(`${API_URL}/employees`, employee, options)
+      .map(unwrapData)
+      .delay(randomDelay());
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${API_URL}/employees/${id}`, options)
+      .map(unwrapData)
+      .delay(randomDelay());
+  }
 }
 
 function unwrapData(res: Response) {

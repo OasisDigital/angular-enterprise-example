@@ -2,23 +2,23 @@
   <div class="col s12">
     <section class="card">
       <div class="card-content">
-        <div class="card-title">Employee Management</div>
+        <div class="card-title">Employee management</div>
 
         <div class="row">
           <div class="col s6">
-            <label for="nameFilter">Name Filter</label>
+            <label for="nameFilter">Name filter</label>
             <input id="nameFilter" type="text" autocomplete="off" [formControl]="nameFilter">
           </div>
           <div class="col s6">
-            <label for="sort">Sort By</label>
+            <label for="sort">Sort by</label>
             <select id="sort" type="text" [formControl]="sort">
-              <option value="last_name">Last Name</option>
-              <option value="hours_worked">Hours Worked</option>
+              <option value="last_name">Last name</option>
+              <option value="hours_worked">Hours worked</option>
             </select>
           </div>
         </div>
 
-        <button class="btn" (click)="addClicked()">Add new emp</button>
+        <button class="btn" (click)="addClicked()">Add employee</button>
 
         <employee-list-table-view [list]="filteredList | async"
           (selectId)="select($event)"></employee-list-table-view>
