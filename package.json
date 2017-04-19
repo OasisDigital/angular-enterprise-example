@@ -3,7 +3,7 @@
     "build": "lerna run build",
     "prod": "lerna run prod",
     "both": "run-s build prod",
-    "test": "run-s prod",
+    "test": "run-s build",
     "clean": "lerna clean --yes && node rimraf-standalone.js node_modules \"**/yarn-*.log\" \"**/lerna-*.log\" \"**/npm-*.log\"",
     "postinstall": "lerna bootstrap",
     "run:admin": "lerna run start --stream --scope @oasisdigital/admin",
