@@ -1,7 +1,6 @@
-export interface IEmployee {
-  id: number;
-  first_name: string;
-  last_name: string;
+import { IEmployeeListing } from './employee-listing';
+
+export interface IEmployee extends IEmployeeListing {
   email: string;
   hours_worked: number;
   hourly_wage: number;

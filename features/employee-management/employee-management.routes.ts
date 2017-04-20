@@ -12,6 +12,7 @@ const ROUTES: Route[] = [
 ];
 
 export const ROUTER_MODULE = RouterModule.forChild(ROUTES);
+
 export const ROUTED_COMPONENTS = [
   ManagementScreenComponent,
   EmployeeFieldsComponent,

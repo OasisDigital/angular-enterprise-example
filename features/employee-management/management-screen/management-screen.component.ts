@@ -29,7 +29,7 @@ export class ManagementScreenComponent {
 
     // List reacts to filter and sort changes
     this.filteredList = Observable.combineLatest(
-      nameFilter$.switchMap(x => api.loadFiltered(x)),
+      nameFilter$.switchMap(x => api.listFiltered(x)),
       sort$,
       (list, sort) => sortBy(list, sort)
     );

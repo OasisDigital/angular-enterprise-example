@@ -2,8 +2,8 @@
   <div class="card-content">
     <div class="card-title">Add employee</div>
 
-    <form [formGroup]="fg">
-      <employee-fields [parentFormGroup]="fg"></employee-fields>
+    <form [formGroup]="containerFormGroup">
+      <employee-fields [parentFormGroup]="containerFormGroup"></employee-fields>
 
       <button type="button" class="btn" (click)="saveClicked()"
         [class.disabled]="false">Save</button>

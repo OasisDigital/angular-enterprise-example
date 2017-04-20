@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
 
-import { IEmployee } from '@oasisdigital/app-schema';
+import { IEmployee, IEmployeeListing } from '@oasisdigital/app-schema';
 
 const API_URL = '/api';
 
@@ -15,19 +15,19 @@ const API_LATENCY = 100;
 const API_JITTER = 100;
 
 const headers = new Headers({ 'Content-Type': 'application/json' });
-const options = new RequestOptions({ headers: headers });
+const options = new RequestOptions({ headers });
 
 @Injectable()
 export class EmployeeApi {
   constructor(private http: Http) { }
 
-  loadAll(): Observable<IEmployee[]> {
+  listAll(): Observable<IEmployeeListing[]> {
     return this.http.get(API_URL + '/employees')
       .map(unwrapData)
       .delay(randomDelay());
   }
 
-  loadFiltered(searchText: string): Observable<IEmployee[]> {
+  listFiltered(searchText: string): Observable<IEmployeeListing[]> {
     // One of several ways to set up HTTP request URL parameters
     // without concatenating them manually.
     const opts = new RequestOptions({

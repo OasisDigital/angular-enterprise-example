@@ -11,7 +11,7 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 
 import { EmployeeApi } from '@oasisdigital/employee-api';
-import { IEmployee } from '@oasisdigital/app-schema';
+import { IEmployeeListing } from '@oasisdigital/app-schema';
 
 @Component({
   selector: 'employee-list',
@@ -21,9 +21,9 @@ export class EmployeeListComponent {
   nameFilter = new FormControl('');
   sort = new FormControl('last_name');
 
-  filteredList: Observable<IEmployee[]>;
+  filteredList: Observable<IEmployeeListing[]>;
   selectedId = new Subject<number>();
-  selectedEmployee: Observable<IEmployee>;
+  selectedEmployee: Observable<IEmployeeListing>;
 
   constructor(api: EmployeeApi) {
     // .valueChanges is missing the initial value; add it:
@@ -36,7 +36,7 @@ export class EmployeeListComponent {
     this.filteredList = Observable.combineLatest(
       nameFilter$
         .debounceTime(250)
-        .switchMap(x => api.loadFiltered(x)),
+        .switchMap(x => api.listFiltered(x)),
       sort$,
       (list, sort) => sortBy(list, sort)
     );

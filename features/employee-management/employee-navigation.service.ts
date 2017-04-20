@@ -4,13 +4,12 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EmployeeNavigation {
-  private base: ActivatedRoute;
+  private baseRoute: ActivatedRoute;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) { }
 
   calculateModuleBaseRoute(route: ActivatedRoute) {
-    this.base = route.pathFromRoot[1];
+    this.baseRoute = route.pathFromRoot[1];
   }
 
   employeeId(componentRoute: ActivatedRoute): Observable<number> {
@@ -19,14 +18,14 @@ export class EmployeeNavigation {
   }
 
   list() {
-    this.router.navigate(['.'], { relativeTo: this.base });
+    this.router.navigate(['.'], { relativeTo: this.baseRoute });
   }
 
   add() {
-    this.router.navigate(['add'], { relativeTo: this.base });
+    this.router.navigate(['add'], { relativeTo: this.baseRoute });
   }
 
   edit(id: number) {
-    this.router.navigate([id], { relativeTo: this.base });
+    this.router.navigate([id], { relativeTo: this.baseRoute });
   }
 }

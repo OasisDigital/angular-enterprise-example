@@ -14,14 +14,14 @@ import { EmployeeNavigation } from '../employee-navigation.service';
   templateUrl: './edit-employee.component.html'
 })
 export class EditEmployeeComponent implements OnDestroy {
-  fg: FormGroup;
+  containerFormGroup: FormGroup;
   sub: Subscription;
   id: number;
 
   constructor(private nav: EmployeeNavigation,
     private api: EmployeeApi, fb: FormBuilder, route: ActivatedRoute) {
     this.nav.calculateModuleBaseRoute(route);
-    this.fg = fb.group({});
+    this.containerFormGroup = fb.group({});
 
     const employee$ = nav.employeeId(route)
       .switchMap(id => api.loadOne(id))
@@ -31,7 +31,7 @@ export class EditEmployeeComponent implements OnDestroy {
       this.id = e.id;
       const { first_name, last_name, email, hourly_wage } = e;
       const hours_worked = e.hours_worked || 0;
-      this.fg.setValue({
+      this.containerFormGroup.setValue({
         employee: { first_name, last_name, email, hourly_wage, hours_worked }
       });
     });
@@ -47,7 +47,7 @@ export class EditEmployeeComponent implements OnDestroy {
 
   saveClicked() {
     this.api.save({
-      ...this.fg.value.employee,
+      ...this.containerFormGroup.value.employee,
       id: this.id
     }).subscribe(x => this.nav.list());
   }

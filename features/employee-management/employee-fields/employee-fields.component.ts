@@ -8,8 +8,8 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './employee-fields.component.html'
 })
 export class EmployeeFieldsComponent implements OnInit {
-  @Input()
-  parentFormGroup: FormGroup;
+  @Input() parentFormGroup: FormGroup;
+
   fg: FormGroup;
 
   constructor(fb: FormBuilder) {

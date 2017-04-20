@@ -13,12 +13,12 @@ import { EmployeeNavigation } from '../employee-navigation.service';
   templateUrl: './add-employee.component.html'
 })
 export class AddEmployeeComponent {
-  fg: FormGroup;
+  containerFormGroup: FormGroup;
 
   constructor(private api: EmployeeApi, private nav: EmployeeNavigation,
     fb: FormBuilder, route: ActivatedRoute) {
     this.nav.calculateModuleBaseRoute(route);
-    this.fg = fb.group({});
+    this.containerFormGroup = fb.group({});
   }
 
   cancelClicked() {
@@ -27,7 +27,7 @@ export class AddEmployeeComponent {
 
   saveClicked() {
     this.api.saveNew({
-      ...this.fg.value.employee
+      ...this.containerFormGroup.value.employee
     }).subscribe(x => this.nav.list());
   }
 }

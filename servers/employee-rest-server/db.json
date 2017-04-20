@@ -815,14 +815,6 @@
       "email": "chunter2r@biblegateway.com",
       "hours_worked": 6,
       "hourly_wage": 9
-    },
-    {
-      "first_name": "foo",
-      "last_name": "bar",
-      "email": "jiojiojio",
-      "hours_worked": "4",
-      "hourly_wage": "5",
-      "id": 101
     }
   ]
 }

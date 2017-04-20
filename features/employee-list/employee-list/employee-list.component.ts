@@ -11,7 +11,7 @@ import 'rxjs/add/operator/let';
 import 'rxjs/add/operator/share';
 
 import { EmployeeApi } from '@oasisdigital/employee-api';
-import { IEmployee } from '@oasisdigital/app-schema';
+import { IEmployeeListing } from '@oasisdigital/app-schema';
 import { StatusStrings, ILoadResultStatus, loadWithRetry, faulty } from '@oasisdigital/retry-loader';
 
 @Component({
@@ -19,19 +19,19 @@ import { StatusStrings, ILoadResultStatus, loadWithRetry, faulty } from '@oasisd
   templateUrl: './employee-list.component.html'
 })
 export class EmployeeListComponent {
-  selectedEmployee: Observable<IEmployee>;
+  selectedEmployee: Observable<IEmployeeListing>;
   status: Observable<string>;
   selectedEmployeeId = new Subject<number>();
-  employees: Observable<IEmployee[]>;
+  employees: Observable<IEmployeeListing[]>;
   showEmployeeDetails: Observable<boolean>;
 
   constructor(api: EmployeeApi) {
-    this.employees = api.loadAll();
+    this.employees = api.listAll();
 
     const loadResults = loadWithRetry(
       this.selectedEmployeeId,
       id => api.loadOne(id)
-        .let(faulty<IEmployee>())   // simulate bad connection
+        .let(faulty<IEmployeeListing>())   // simulate bad connection
     ).share();
 
     this.status = loadResults
