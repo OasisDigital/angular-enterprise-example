@@ -35,13 +35,21 @@ schema {
 }
 `;
 
+const getPets = (ssn: string) => {
+  return Promise.resolve([{name: 'Carmella', kind: 'rabbit'}, {name: 'Smiley', kind: 'hermit crab'}]);
+};
+
+
 const resolvers = {
   Query: {
     posts() {
-      return [{ 'name': 'first', popularity: 1 }];
+      return [{ 'name': 'first', popularity: 1 }, {'name': 'second', popularity: 4}];
     },
     employees() {
-      return [];
+      return [
+        {name: 'billy', ssn: '123-45-6789', pets: () => getPets('') },
+        {name: 'bob', ssn: '987-65-4321', pets: () => getPets('')}
+      ];
     }
   }
 };
