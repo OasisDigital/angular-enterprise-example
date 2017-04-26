@@ -3,8 +3,19 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 import { IEmployee, IEmployeeListing } from '@oasisdigital/app-schema';
+
+const allEmployees = gql`
+  query allEmployees {
+      employees {
+        name
+        ssn
+      }
+    }
+`;
 
 const API_URL = '/api';
 
@@ -19,12 +30,18 @@ const options = new RequestOptions({ headers });
 
 @Injectable()
 export class EmployeeApi {
-  constructor(private http: Http) { }
+  constructor(private http: Http, private apollo: Apollo) { }
 
   listAll(): Observable<IEmployeeListing[]> {
     return this.http.get(API_URL + '/employees')
       .map(unwrapData)
       .delay(randomDelay());
+  }
+
+  listAllGQL(): Observable<IEmployeeListing[]> {
+    return this.apollo.watchQuery<IEmployeeListing[]>({
+      query: allEmployees
+    });
   }
 
   listFiltered(searchText: string): Observable<IEmployeeListing[]> {
