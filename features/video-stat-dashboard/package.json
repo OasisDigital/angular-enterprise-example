@@ -11,19 +11,19 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@angular/core": "4.0.2",
-    "@angular/compiler": "4.0.2",
-    "@angular/common": "4.0.2",
-    "@angular/forms": "4.0.2",
-    "@angular/router": "4.0.2",
+    "@angular/core": "4.1.3",
+    "@angular/compiler": "4.1.3",
+    "@angular/common": "4.1.3",
+    "@angular/forms": "4.1.3",
+    "@angular/router": "4.1.3",
     "@ngrx/core": "1.2.0",
-    "@ngrx/store": "2.2.1",
+    "@ngrx/store": "2.2.2",
     "@oasisdigital/age-range": "*",
     "lodash": "4.17.4",
-    "moment": "2.17.1",
-    "rxjs": "^5.3.0"
+    "moment": "2.18.1",
+    "rxjs": "^5.4.0"
   },
   "devDependencies": {
-    "typescript": "^2.2.2"
+    "typescript": "^2.3.2"
   }
 }
