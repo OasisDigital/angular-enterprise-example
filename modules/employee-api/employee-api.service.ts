@@ -7,6 +7,7 @@ import 'rxjs/add/operator/delay';
 import { IEmployee, IEmployeeListing } from '@oasisdigital/app-schema';
 
 const API_URL = '/api';
+const EMP_URL = API_URL + '/employees';
 
 // Configure the amount of latency and jitter to simulate
 const API_LATENCY = 100;
@@ -22,7 +23,7 @@ export class EmployeeApi {
   constructor(private http: Http) { }
 
   listAll(): Observable<IEmployeeListing[]> {
-    return this.http.get(API_URL + '/employees')
+    return this.http.get(EMP_URL)
       .map(unwrapData)
       .delay(randomDelay());
   }
@@ -33,34 +34,34 @@ export class EmployeeApi {
     const opts = new RequestOptions({
       params: {
         'q': searchText,
-        '&_limit': 20
+        '_limit': 20
       }
     });
-    return this.http.get(API_URL + '/employees', opts)
+    return this.http.get(EMP_URL, opts)
       .map(unwrapData)
       .delay(randomDelay());
   }
 
   loadOne(employeeId: number): Observable<IEmployee> {
-    return this.http.get(`${API_URL}/employees/${employeeId}`)
+    return this.http.get(`${EMP_URL}/${employeeId}`)
       .map(unwrapData)
       .delay(randomDelay());
   }
 
   save(employee: IEmployee) {
-    return this.http.put(`${API_URL}/employees/${employee.id}`, employee, options)
+    return this.http.put(`${EMP_URL}/${employee.id}`, employee, options)
       .map(unwrapData)
       .delay(randomDelay());
   }
 
   saveNew(employee: IEmployee) {
-    return this.http.post(`${API_URL}/employees`, employee, options)
+    return this.http.post(EMP_URL, employee, options)
       .map(unwrapData)
       .delay(randomDelay());
   }
 
   delete(id: number) {
-    return this.http.delete(`${API_URL}/employees/${id}`, options)
+    return this.http.delete(`${EMP_URL}/${id}`, options)
       .map(unwrapData)
       .delay(randomDelay());
   }
