@@ -1,0 +1,203 @@
+{
+  "$schema": "./node_modules/@nrwl/schematics/src/schema.json",
+  "project": {
+    "name": "enterprise-example",
+    "npmScope": "enterprise-example",
+    "latestMigration": "20180227-cleanup-scripts"
+  },
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "./tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/admin/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/admin/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/agent/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/agent/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/portal/src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/portal/e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "apps": [
+    {
+      "name": "admin",
+      "root": "apps/admin/src",
+      "outDir": "dist/apps/admin",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../../../node_modules/materialize-css/dist/css/materialize.css",
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "agent",
+      "root": "apps/agent/src",
+      "outDir": "dist/apps/agent",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../../../node_modules/materialize-css/dist/css/materialize.css",
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "portal",
+      "root": "apps/portal/src",
+      "outDir": "dist/apps/portal",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../../../node_modules/materialize-css/dist/css/materialize.css",
+        "styles.css"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
+      "name": "age-range",
+      "root": "libs/age-range/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "app-schema",
+      "root": "libs/app-schema/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "employee-api",
+      "root": "libs/employee-api/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "employee-display",
+      "root": "libs/employee-display/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "employee-list",
+      "root": "libs/employee-list/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "employee-management",
+      "root": "libs/employee-management/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "employee-search",
+      "root": "libs/employee-search/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "fruit-basket",
+      "root": "libs/fruit-basket/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "retry-loader",
+      "root": "libs/retry-loader/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "video-stat-dashboard",
+      "root": "libs/video-stat-dashboard/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "$workspaceRoot",
+      "root": ".",
+      "appRoot": ""
+    }
+  ],
+  "defaults": {
+    "schematics": {
+      "collection": "@nrwl/schematics"
+    },
+    "styleExt": "css",
+    "component": {}
+  },
+  "warnings": {
+    "typescriptMismatch": false
+  }
+}

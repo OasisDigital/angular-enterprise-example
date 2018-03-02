@@ -1,0 +1,30 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc/e2e/admin",
+    "module": "commonjs",
+    "target": "es5",
+    "types": [
+      "jasmine",
+      "jasminewd2",
+      "node"
+    ]
+  },
+  "include": [
+    "../**/*.ts"
+    /* add all lazy-loaded libraries here: "../../../libs/my-lib/index.ts" */
+  
+    , "../../../libs/employee-list/index.ts"
+
+    , "../../../libs/employee-management/index.ts"
+
+    , "../../../libs/employee-search/index.ts"
+
+    , "../../../libs/fruit-basket/index.ts"
+
+    , "../../../libs/video-stat-dashboard/index.ts"
+],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}

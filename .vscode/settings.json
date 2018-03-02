@@ -3,5 +3,5 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
-  "vsicons.presets.angular": false
+  "vsicons.presets.angular": true
 }

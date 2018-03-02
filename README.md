@@ -1,4 +1,4 @@
-# Large Angular application structure example
+# Angular Enterprise Example
 
 [![Build Status](https://travis-ci.org/OasisDigital/scalable-enterprise-angular.svg?branch=master)](https://travis-ci.org/OasisDigital/scalable-enterprise-angular)
 
@@ -7,48 +7,40 @@ particularly as all of the tools improve.
 
 ## Goals
 
-1. Accomodate sprawling Angular applications - and collections of applications
-   with partially overlapping code behind them.
+1. Show an example of a sprawling set of related Angular applications, divided
+   into various libraries.
 2. Manage complexity, size, and scale.
-3. Use Angular CLI to the extent possible.
-4. Bend tools designed for a simple application with a single codebase, to work
-   acceptably with more than that.
+3. Provide a way to "bloat up" with numerous randomly generated additional
+   modules/features/components, up to the size of the largest Angular
+   applications.
+4. Initially use Angular CLI and Nx.
+5. Later, Bazel.
 
 ## Technologies used
 
-* Angular 4
+* Angular 5
 * Angular CLI
-* NgRx/Store, Store addons, including dev-tools and freeze
-* Lerna
-* RxJS, not only as a dependency of Angular
+* Nx
+* NgRx/Store, Store addons
+* RxJS
 * Lodash, Moment
+* REST
+* SSE
+* GraphQL
 
-## Explanation - how it works (so far)
+## Explanation - how it works
 
-This example uses Lerna to wire up interproject dependencies. This is an
-atypical use of Lerna, which exists primarily to support **publishing** a set of
-related projects. Here we are not publishing at all, but rather using Lerna only
-for cross-project linking. It is not yet clear whether the Lerna maintainers
-endorse or tolerate this (mis?)use of Lerna.
-
-A family of related applications is decomposed to:
-
-* Several top-level applications, in the `application` directory.
-* Some modules, in the `module` directory.
-* One or more servers, in the `server` directory.
+This set of example applications features use Nx to wire up enter project
+dependencies during development. Following the Nx convention, they are divided
+into "apps" and "libs".
 
 There is a many-to-many relatioship between applications and modules, and
-modules can use other modules. Lerna wires up the dependencies using symlinks.
+modules can use other modules.
 
-### 4 Layers / bins
-
-A family of applications is divided in to many modules, which are then organized
-into 4 layers / bins:
-
-* Applications
-* Top-level features (which should be lazy loaded - TODO)
-* Modules used by both features, and by server code
-* Server(s)
+In addition, there is a "servers" directory intended to contain one or more
+server-side example code bases that support the Angular example. These are not
+managed using Nx, which is Angular specific. However, in a sprawling set of
+related servers and libraries, Lerna could be used too much the same effect.
 
 ### Example application
 
@@ -59,66 +51,34 @@ modest complexity could easily be written as a single project (each).
 Still, the example applications reuse blocks of functionality, so they show the
 value of this multi-package approach.
 
-There are two application to run:
+There are three application to run:
 
-* Admin - bundles three feature modules
-* Portal - bundles one feature module
+* Admin - bundles 5 feature modules
+* Agent - bundles 2 feature module
+* Portal - bundles 1 feature module
 
-The feature modules, as well as some other modules they depend on, are in the
-module directory.
+To understand how they are cross wired, look at the tsconfig.json file for each.
 
-To understand the automatic lacing together of dependencies, study the
-`package.json` file of each module, in particular the dependencies. Note the
-dependencies look like this:
-
-```
-    "@oasisdigital/employee-display": "*"
-```
-
-Such dependencies refer to other packages, part of the same application suite.
-
-Many of the chunks of functionality in the example applications are similar to
-code examples we use in Angular Boot Camp:
-
-https://angularbootcamp.com/
-
-...repurposed and rearranged for use in this example.
-
-Two of the modules use ngrx/store for state management, with the admin
-application showing how to unite them both into the same store.
+Two of the modules use ngrx/store for state management, With appropriate lazy
+loading of feature modules.
 
 ### Running the example applications
 
+In one window:
+
 ```
 yarn
-yarn run build
-yarn run portal
-# use user portal for a while
-^C
-
-yarn run admin
-# use admin app for a while
+yarn start
+# add --app=agent or --app=portal if desired
 ```
 
-### Tips for working with this code
-
-Lerna doesn't (yet) do a great job updating dependencies and cross-links to keep
-up with incremental package changes. If you make changes then have trouble, this
-usually helps:
+In another window:
 
 ```
-yarn run clean
+cd servers/node
 yarn
+yarn start
 ```
-
-## Issues, Annoyances, TODOs
-
-... in the [issue tracker](https://github.com/OasisDigital/scalable-enterprise-angular/issues)
-
-Also, as this is not the normal vanilla use case for CLI and other Angular
-tooling, error messages are sometimes unhelpful. That probably can't be fixed in
-this code, but should improve as CLI continues to be used in more different
-situations and continues to improve.
 
 ## Contact us
 

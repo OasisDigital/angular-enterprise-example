@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-yarn run clean
-yarn
-yarn run both
+yarn run ng build --prod -a portal
+yarn run ng build --prod -a agent
+yarn run ng build --prod -a admin
 
-echo "success"
+yarn run lint
