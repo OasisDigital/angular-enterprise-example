@@ -6,3 +6,5 @@ yarn run ng build --prod -a agent
 yarn run ng build --prod -a admin
 
 yarn run lint
+
+yarn run compodoc
