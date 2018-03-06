@@ -7,5 +7,5 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CounterDisplayComponent {
   @Input() label: string;
   @Input() counter: number;
-  @Output() pick = new EventEmitter<void>();
-};
+  @Output() pick = new EventEmitter<number>();
+}

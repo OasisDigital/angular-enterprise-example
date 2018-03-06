@@ -1,10 +1,20 @@
-<h5>Counter Example</h5>
+<h3>Fruit Basket</h3>
+
 <button (click)="empty()" class="btn">Empty Cart</button>
-<counter-display label="Berries"
-  [counter]="berry | async"
-  (pick)="pickBerry()"></counter-display>
-<counter-display label="Apples"
-  [counter]="apple | async"
-  (pick)="pickApple()"></counter-display>
-<button (click)="pickApples()" class="btn">Pick 3 apples</button>
 <p>Total Fruit: {{ total | async }}</p>
+
+<div class="row">
+  <counter-display
+    class="col s12 m6"
+    label="Berries"
+    [counter]="berry | async"
+    (pick)="pickBerry()">
+  </counter-display>
+
+  <counter-display
+    class="col s12 m6"
+    label="Apples"
+    [counter]="apple | async"
+    (pick)="pickApple($event)">
+  </counter-display>
+</div>

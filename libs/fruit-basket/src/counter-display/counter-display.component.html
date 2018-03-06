@@ -1,4 +1,10 @@
 <div class="card">
-  <span>Current {{label}}: {{ counter }}</span>
-  <button (click)="pick.emit()">Pick</button>
+  <div class="card-content">
+    <div class="card-title">{{label}}</div>
+    Current total: {{ counter }}
+  </div>
+  <div class="card-action">
+    <button class="btn" (click)="pick.emit(1)">Pick</button>
+    <button class="btn" (click)="pick.emit(3)" *ngIf="label === 'Apples'">Pick 3</button>
+  </div>
 </div>

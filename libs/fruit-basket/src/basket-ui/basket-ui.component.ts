@@ -2,7 +2,7 @@
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import * as state from '../state/state';
+import { PickBerryAction, AppState, PickApplesAction, EmptyCartAction } from '../state/state';
 
 @Component({
   selector: 'basket-ui',
@@ -13,25 +13,21 @@ export class BasketUiComponent {
   apple: Observable<number>;
   total: Observable<number>;
 
-  constructor(public store: Store<state.IAppState>) {
-    this.berry = store.select(s => s.fruit.berryCounter);
-    this.apple = store.select(s => s.fruit.appleCounter);
-    this.total = store.select(s => s.fruit.berryCounter + s.fruit.appleCounter);
+  constructor(public store: Store<AppState>) {
+    this.berry = store.select(state => state.fruit.berryCounter);
+    this.apple = store.select(state => state.fruit.appleCounter);
+    this.total = store.select(state => state.fruit.berryCounter + state.fruit.appleCounter);
   }
 
   pickBerry() {
-    this.store.dispatch(new state.PickBerryAction());
+    this.store.dispatch(new PickBerryAction());
   }
 
-  pickApple() {
-    this.store.dispatch(new state.PickAppleAction());
-  }
-
-  pickApples() {
-    this.store.dispatch(new state.PickApplesAction(3));
+  pickApple(count: number) {
+    this.store.dispatch(new PickApplesAction(count));
   }
 
   empty() {
-    this.store.dispatch(new state.EmptyCartAction());
+    this.store.dispatch(new EmptyCartAction());
   }
 }
