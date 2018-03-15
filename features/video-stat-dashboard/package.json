@@ -20,7 +20,7 @@
     "@ngrx/store": "2.2.2",
     "@oasisdigital/age-range": "*",
     "lodash": "4.17.4",
-    "moment": "2.18.1",
+    "moment": "2.21.0",
     "rxjs": "^5.4.0"
   },
   "devDependencies": {
